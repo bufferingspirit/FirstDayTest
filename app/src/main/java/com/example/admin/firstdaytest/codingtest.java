@@ -53,5 +53,6 @@ public class codingtest{
         while(i <= letters.size()){
 
         }
+        //string compare here
     }
 }
