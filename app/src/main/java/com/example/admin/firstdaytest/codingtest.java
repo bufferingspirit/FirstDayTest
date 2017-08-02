@@ -1,7 +1,9 @@
 package com.example.admin.firstdaytest;
 
 import java.util.ArrayList;
-
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Arrays;
 /* Robert Price*/
 
 public class codingtest{
@@ -12,7 +14,10 @@ public class codingtest{
         //if number divisible by 3 then print fizz
         //if number divisible by 5 print buzz
         //if number divisible by both print fizzbuzz
-        int[] numbers = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        Integer[] numbers = new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        ArrayList<Integer> A = new ArrayList<Integer>(Arrays.asList(numbers));
+        System.out.println("Problem 1:");
+        printFizzBuzz(A);
 
         //problem2
         //print out the duplicate strings in a arraylist of strings
@@ -26,13 +31,17 @@ public class codingtest{
         stringArrayList.add("E");
         stringArrayList.add("B");
         stringArrayList.add("A");
+        stringArrayList.add("D");
+
+        System.out.println("Problem 2:");
+        printDuplicates(stringArrayList);
 
 
     }
 
-    public void printFizzBuzz(ArrayList<Integer> numbers){
+    public static void printFizzBuzz(ArrayList<Integer> numbers){
         int i = 0;
-        while(i <= numbers.size()){
+        while(i < numbers.size()){
             if(((numbers.get(i)%3) == 0) && (numbers.get(i)%5 == 0)){
                 System.out.println("fizzbuzz");
             }
@@ -44,15 +53,23 @@ public class codingtest{
             }
             i++;
         }
-
     }
 
-    public void printDuplicates(ArrayList<String> letters){
-        int i = 0;
-        ArrayList<String> duplicates = new ArrayList<>();
-        while(i <= letters.size()){
-
+    public static void printDuplicates(ArrayList<String> letters){
+        HashMap<String, Integer> duplicates = new HashMap<String, Integer>();
+        for(int i = 0; i < letters.size(); i++){
+            String foo = letters.get(i);
+            if(!(duplicates.containsKey(foo))){
+                duplicates.put(foo, 0);
+            }
+            else{
+                duplicates.put(foo, duplicates.get(foo)+1);
+            }
         }
-        //string compare here
+        for(Map.Entry<String, Integer> entry : duplicates.entrySet()){
+            if(entry.getValue() > 0){
+                System.out.println(entry.getKey());
+            }
+        }
     }
 }
