@@ -36,7 +36,6 @@ public class codingtest{
         System.out.println("Problem 2:");
         printDuplicates(stringArrayList);
 
-
     }
 
     public static void printFizzBuzz(ArrayList<Integer> numbers){
